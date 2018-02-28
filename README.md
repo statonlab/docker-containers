@@ -36,6 +36,8 @@ Run example:
 ```bash
 # use -d to run in the background as shown below
 docker run -itd -p 80:8080 -p 5432:5432 --name my-container -v .:/modules/my-module statonlab:drupal7
+docker run -itd -p 80:8080 -p 5432:5432 --name my-container -v .:/modules/my-module statonlab:tripal3
+docker run -itd -p 80:8080 -p 5432:5432 --name my-container -v .:/modules/my-module statonlab:drupal2
 ```
 You can then visit `localhost:8080` to view your site.
 
