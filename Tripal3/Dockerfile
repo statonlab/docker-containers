@@ -8,13 +8,13 @@ RUN set -x \
 
 	# Get the DB and apache up to populate the tables
 	&& sudo -u postgres pg_ctl -D /var/lib/pgsql/data -l /var/log/pgsql.log start \
-	&& sudo httpd \
+	&& httpd \
 
 	# Get tripal 3
 	&& git clone https://github.com/tripal/tripal.git sites/all/modules/custom/tripal \
 
 	# Make sure the servers are up
-	&& sleep 3 \
+	&& sleep 5 \
 
 	# Enable tripal 3 modules
 	&& drush en -y tripal tripal_chado tripal_chado_views tripal_ds tripal_ws \
