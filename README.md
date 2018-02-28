@@ -1,8 +1,10 @@
+[![master Build Status](https://travis-ci.org/statonlab/docker-containers.svg?branch=master)](https://travis-ci.org/statonlab/docker-containers)
+
 ## Docker Containers for Tripal
 This repository offers 3 flavors of docker containers:
 1. [drupal7](https://hub.docker.com/r/statonlab/drupal7/): Creates and installs a Drupal 7 site
-1. [tripal3](https://hub.docker.com/r/statonlab/tripal3/): Builds on top of the Drupal 7 container to install Tripal 3 and prepares both Chado and Drupal to be used with Drupal.
-1. tripal2: Under development
+1. [tripal3](https://hub.docker.com/r/statonlab/tripal3/): Builds on top of the Drupal 7 container to install Tripal 3 and prepares both Chado and Drupal.
+1. [tripal2](https://hub.docker.com/r/statonlab/tripal2/): Builds on top of the Drupal 7 container to install Tripal 2 and Chado 1.3.
 
 ## Installation
 To install, you can simply pull the containers from the docker hub or add a `FROM` line in your Dockerfile.
@@ -10,12 +12,12 @@ To install, you can simply pull the containers from the docker hub or add a `FRO
 # Use one of the following to pull the container
 docker pull statonlab/drupal7
 docker pull statonlab/tripal3
-docker pull statonlab/tripal2 # NOT AVAILABLE YET
+docker pull statonlab/tripal2
 
 # Or in your Docker file
 FROM statonlab/drupal7:latest
 FROM statonlab/tripal3:latest
-FROM statonlab/tripal2:latest # NOT AVAILABLE YET
+FROM statonlab/tripal2:latest
 ```
 
 ### Usage
