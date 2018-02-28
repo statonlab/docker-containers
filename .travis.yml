@@ -1,0 +1,12 @@
+language: none
+
+services:
+  - docker
+
+sudo: required
+
+script:
+  - docker build Drupal/.
+  - docker build Tripal2/.
+  - docker build Tripal3/.
+
