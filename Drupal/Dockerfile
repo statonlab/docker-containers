@@ -17,7 +17,7 @@ RUN set -x \
     && yum install -y yum-utils \
     && yum-config-manager --enable remi-php71 \
     && yum update -y \
-    && yum install -y mod_php php-mcrypt php-mbstring php-json php-pgsql \
+    && yum install -y mod_php php-mcrypt php-mbstring php-json php-posix php-pgsql \
       				  php-pdo php-xml php-curl php-gd supervisor sudo \
       				  patch which
 
