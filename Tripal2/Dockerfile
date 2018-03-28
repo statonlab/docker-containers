@@ -17,7 +17,7 @@ RUN set -x \
 	&& cd /var/www/html \
 
 	# Make sure the server woke up
-	&& sleep 3 \
+	&& sleep 20 \
 
 	# Enable tripal 2 main modules
 	&& drush en -y tripal_core \
