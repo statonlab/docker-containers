@@ -11,12 +11,11 @@ script:
   - docker build Tripal3/. -t mytripal3
   # Spin all containers up and make sure we get HTTP status OK 200
   - docker run -itd --rm --name drupal7 -p 8080:80 mydrupal7
-  - docker run -itd --rm --name tripal2 -p 8081:80 mytripal2
-  - docker run -itd --rm --name tripal3 -p 8082:80 mytripal3
+  - docker run -itd --rm --name tripal2 -p 9090:80 mytripal2
+  - docker run -itd --rm --name tripal3 -p 8085:80 mytripal3
   # Allow all services to become active
   - sleep 60
   # Make sure all servers give the correct status
   - curl -si localhost:8080 | grep "HTTP/1.1 200 OK" || exit 1
-  - curl -si localhost:8081 | grep "HTTP/1.1 200 OK" || exit 1
-  - curl -si localhost:8082 | grep "HTTP/1.1 200 OK" || exit 1
-
+  - curl -si localhost:9090 | grep "HTTP/1.1 200 OK" || exit 1
+  - curl -si localhost:8085 | grep "HTTP/1.1 200 OK" || exit 1
