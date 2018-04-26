@@ -6,7 +6,17 @@ services:
 sudo: required
 
 script:
-  - docker build Drupal/.
-  - docker build Tripal2/.
-  - docker build Tripal3/.
+  - docker build Drupal/. -t myDrupal7
+  - docker build Tripal2/. -t myTripal2
+  - docker build Tripal3/. -t myTripal3
+  # Spin all containers up and make sure we get HTTP status OK 200
+  - docker run -itd --rm --name drupal7 -p 8080:80 myDrupal7
+  - docker run -itd --rm --name drupal7 -p 8081:80 myTripal2
+  - docker run -itd --rm --name drupal7 -p 8082:80 myTripal3
+  # Allow all services to become active
+  - sleep 60
+  # Make sure all servers give the correct status
+  - curl -si localhost:8080 | grep "HTTP/1.1 200 OK" || exit 1
+  - curl -si localhost:8081 | grep "HTTP/1.1 200 OK" || exit 1
+  - curl -si localhost:8082 | grep "HTTP/1.1 200 OK" || exit 1
 
