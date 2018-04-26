@@ -40,13 +40,13 @@ ENV PATH "$PATH:/root/.composer/vendor/bin"
 
 # Download drupal and other modules
 RUN cd /var/www/html \
-	&& wget https://www.drupal.org/files/projects/drupal-7.57.tar.gz \
-	&& tar -zxvf drupal-7.57.tar.gz \
-   	&& mv drupal-7.57/* ./ \
-   	&& mv drupal-7.57/.editorconfig ./ \
-   	&& mv drupal-7.57/.gitignore ./ \
-   	&& mv drupal-7.57/.htaccess ./ \
-   	&& rm -r drupal-7.57 drupal-7.57.tar.gz \
+	&& wget https://www.drupal.org/files/projects/drupal-7.59.tar.gz \
+	&& tar -zxvf drupal-7.59.tar.gz \
+   	&& mv drupal-7.59/* ./ \
+   	&& mv drupal-7.59/.editorconfig ./ \
+   	&& mv drupal-7.59/.gitignore ./ \
+   	&& mv drupal-7.59/.htaccess ./ \
+   	&& rm -r drupal-7.59 drupal-7.59.tar.gz \
    	&& mkdir /var/www/html/sites/all/modules/custom \
    	&& cd /var/www/html/sites/all/modules \
    	&& drush dl -y ctools, date, devel, ds, link, entity, libraries, \
