@@ -20,6 +20,13 @@ FROM statonlab/tripal3:latest
 FROM statonlab/tripal2:latest
 ```
 
+An image is available with the Tripal Devseed dataset pre-loaded! This was built using [v0.1.5 of this repo](https://github.com/statonlab/docker-containers/releases/tag/v0.1.5) and [v0.1.1 of the Devseed project](https://github.com/statonlab/tripal_dev_mini_dataset/releases/tag/v0.1.1).
+
+```
+docker pull statonlab/tripal3_seeded
+```
+
+
 ### Usage
 
 ##### Ports
