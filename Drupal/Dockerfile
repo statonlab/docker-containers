@@ -87,6 +87,9 @@ RUN wget --no-check-certificate https://drupal.org/files/drupal.pgsql-bytea.27.p
 # Add custom modules dicrectory
 RUN ln -s /var/www/html/sites/all/modules/custom /modules
 
+# Set files directory permissions
+RUN chown -R apache:apache /var/www/html/sites/default/files
+
 # Expose http and psql port
 EXPOSE 80 5432
 
