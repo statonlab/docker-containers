@@ -28,6 +28,10 @@ docker pull statonlab/tripal3_seeded
 
 
 ### Usage
+##### Site password
+The login information for your site:
+Username: admin
+Password: secret
 
 ##### Ports
 All containers expose the following ports:
