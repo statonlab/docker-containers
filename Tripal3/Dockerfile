@@ -19,6 +19,7 @@ RUN set -x \
 	&& drush trp-run-jobs --username=admin \
 	&& drush eval "module_load_include('inc', 'tripal_chado', 'includes/setup/tripal_chado.setup'); tripal_chado_prepare_drush_submit();" \
 	&& drush trp-run-jobs --username=admin \
+	&& drush dis -y overlay \
 	# Populate the cache
 	&& curl localhost > /dev/null
 
