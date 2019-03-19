@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos/postgresql-96-centos7
 MAINTAINER Abdullah Almsaeed <abdullah@almsaeedstudio.com>
 
 USER root
@@ -10,9 +10,10 @@ RUN set -x \
 # Install services
 # (Apache2, php7.1, posgtes, curl, git, zip, unzip, supervisor ... etc)
 RUN set -x \
- 	&& yum install -y wget curl git zip unzip httpd crontabs postgresql postgresql-server \
+ 	&& yum install -y wget curl git zip unzip httpd crontabs  \
 	&& wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
     && wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm \
+	#	wget https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm \
     && rpm -Uvh remi-release-7.rpm epel-release-latest-7.noarch.rpm \
     && yum install -y yum-utils \
     && yum-config-manager --enable remi-php71 \
@@ -20,6 +21,18 @@ RUN set -x \
     && yum install -y mod_php php-mcrypt php-mbstring php-json php-posix php-pgsql \
       				  php-pdo php-xml php-curl php-gd supervisor sudo \
       				  patch which
+
+# Install postgres and create alias
+
+#RUN \
+#yum install -y pgdg-centos96-9.6-3.noarch.rpm epel-release \
+# && yum update -y \
+#&& yum install -y postgresql96-server postgresql96-contrib\
+#&&  /usr/pgsql-9.6/bin/postgresql96-setup initdb\
+#&& systemctl start postgresql-9.6
+#alias!
+#&& alias initdb 'intdb-96'
+
 
 WORKDIR /var/www/html
 
