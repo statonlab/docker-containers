@@ -6,7 +6,7 @@ WORKDIR /var/www/html
 
 RUN set -x \
 	# Get the DB and apache up to populate the tables
-	&& sudo -u postgres pg_ctl -D /var/lib/pgsql/data -l /var/log/pgsql.log start \
+	&& sudo -u postgres /usr/pgsql-9.6/bin/pg_ctl -D /var/lib/pgsql/9.6/data -l /var/log/pgsql.log start \
 	&& apachectl \
 	# Get tripal 3
 	&& git clone https://github.com/tripal/tripal.git sites/all/modules/custom/tripal \
