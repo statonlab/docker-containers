@@ -79,7 +79,9 @@ RUN set -x \
 	# Enable dependencies
 	&& drush en -y ctools, date, devel, ds, link, entity, libraries, \
        redirect, token, uuid, jquery_update, views, webform, field_group, \
-       field_group_table, field_formatter_class, field_formatter_settings
+       field_group_table, field_formatter_class, field_formatter_settings \
+    # Finally update drupal to the latest version
+    && drush pm-update drupal -y
 
 # Apply patches
 RUN wget --no-check-certificate https://drupal.org/files/drupal.pgsql-bytea.27.patch \
